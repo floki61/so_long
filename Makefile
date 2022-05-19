@@ -11,7 +11,7 @@ SRCS =	checker.c			\
 all: $(NAME)
 
 $(NAME) : 
-	@gcc $(FLAGS) $(SRCS)  -D BUFFER_SIZE=1000000 -o $(NAME)
+	@gcc $(FLAGS) $(SRCS)  -D BUFFER_SIZE=1000000 -o $(NAME) -g
 
 fclean:
 	@rm -rf $(NAME)

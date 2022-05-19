@@ -16,7 +16,7 @@ typedef struct s_node
 	int p;
 	int	n;
 	int	k;
-	int lenght;
+	int lenght; 
 	int width;
 
 }	t_node;
@@ -27,9 +27,12 @@ typedef struct	s_data
 	void	*mlx_win;
 	void	*img;
 	char	*relative_path;
-	//char	**map;
+	char	**map;
 	int		img_width;
 	int		img_height;
+	int		px;
+	int		py;
+	int		indx;
 }				t_data;
 
 
@@ -42,7 +45,10 @@ int		check_map(char **map,t_node *var);
 int		check_lenght(char **map,int i,t_node *var);
 int		check_width(char **map, int i);
 int		check_middle(char **map);
-int		draw_map(char **map,t_node *var);
-void 	so_long(char **map,t_node *var);
+int		draw_map(t_data *img,t_node *var);
+void 	so_long(t_data *img,t_node *var);
 void	drawing(char map,t_data	*img,t_node *var);
+void	search_map(t_data *img ,char n);
+void	draw(t_data *img);
+void	moves(int keycode, t_data *img);
 #endif

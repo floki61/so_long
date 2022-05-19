@@ -87,23 +87,25 @@ int	check_middle(char **map)
 		return (-1);
 	return (0);
 }
-void so_long(char **map,t_node *var)
+void so_long(t_data *img,t_node *var)
 {
-	draw_map(map,var);
+	draw_map(img,var);
 }
 
 int main()
 {
 	char *instruction;
 	char *tab;
-	char **map;
+	t_data *img;
+	// char **map;
 	int fd;
 	int i;
 	t_node *var;
 	
 	i = 0;
+	img = malloc(sizeof(t_data));
 	var = malloc(sizeof(t_node));
-	fd = open("map.ber", O_RDONLY);
+	fd = open("map.test", O_RDONLY);
 	instruction = get_next_line(fd);
 	if(!instruction)
 	{
@@ -115,11 +117,11 @@ int main()
 		tab = ft_strjoin(tab,instruction);
 		instruction = get_next_line(fd);
 	}
-	map = ft_split(tab, '\n');
-	if (!check_map(map,var))
+	img->map = ft_split(tab, '\n');
+	if (!check_map(img->map,var))
 	{
 		printf("error\n");
 		exit (0);
 	}
-	so_long(map,var);
+	so_long(img,var);
 }
